@@ -1,0 +1,677 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		457F15EA1E33E959006F963D /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 457F15E71E33E54F006F963D /* libsqlcipher.a */; };
+		457F15ED1E33E96E006F963D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457F15EC1E33E96E006F963D /* Security.framework */; };
+		457F15F21E356C1C006F963D /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 457F15F11E356C1C006F963D /* DataManager.m */; };
+		45DCA6D21EB6A1740041D33B /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCA6D11EB6A1740041D33B /* ItemViewController.m */; };
+		45E322901E18729400B15C58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3228F1E18729400B15C58 /* main.m */; };
+		45E322931E18729400B15C58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E322921E18729400B15C58 /* AppDelegate.m */; };
+		45E322991E18729400B15C58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E322971E18729400B15C58 /* Main.storyboard */; };
+		45E3229B1E18729400B15C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E3229A1E18729400B15C58 /* Assets.xcassets */; };
+		45E3229E1E18729400B15C58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E3229C1E18729400B15C58 /* LaunchScreen.storyboard */; };
+		45E322A91E18729400B15C58 /* MiniSafeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E322A81E18729400B15C58 /* MiniSafeTests.m */; };
+		45E322B41E18729400B15C58 /* MiniSafeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E322B31E18729400B15C58 /* MiniSafeUITests.m */; };
+		45E322C91E1AEA9900B15C58 /* SelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E322C81E1AEA9900B15C58 /* SelectItemViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		457F15DE1E33E54F006F963D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4C0041981BFC382400ED2AD5;
+			remoteInfo = "SQLCipher iOS";
+		};
+		457F15E01E33E54F006F963D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4C0041B11BFC3B2200ED2AD5;
+			remoteInfo = "SQLCipher OSX";
+		};
+		457F15E21E33E54F006F963D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4C0041C31BFC3CC000ED2AD5;
+			remoteInfo = "SQLCipher tvOS";
+		};
+		457F15E41E33E54F006F963D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4C0041D61BFC3E2500ED2AD5;
+			remoteInfo = "SQLCipher watchOS";
+		};
+		457F15E61E33E54F006F963D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC046055464E500DB518D;
+			remoteInfo = sqlcipher;
+		};
+		457F15E81E33E947006F963D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC045055464E500DB518D;
+			remoteInfo = sqlcipher;
+		};
+		45E322A51E18729400B15C58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45E322831E18729400B15C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45E3228A1E18729400B15C58;
+			remoteInfo = MiniSafe;
+		};
+		45E322B01E18729400B15C58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45E322831E18729400B15C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45E3228A1E18729400B15C58;
+			remoteInfo = MiniSafe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
+		457F15EC1E33E96E006F963D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		457F15F01E356C1C006F963D /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		457F15F11E356C1C006F963D /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		45DCA6D01EB6A1740041D33B /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		45DCA6D11EB6A1740041D33B /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		45E3228B1E18729400B15C58 /* MiniSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45E3228F1E18729400B15C58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45E322911E18729400B15C58 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		45E322921E18729400B15C58 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		45E322981E18729400B15C58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45E3229A1E18729400B15C58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45E3229D1E18729400B15C58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		45E3229F1E18729400B15C58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E322A41E18729400B15C58 /* MiniSafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniSafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45E322A81E18729400B15C58 /* MiniSafeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniSafeTests.m; sourceTree = "<group>"; };
+		45E322AA1E18729400B15C58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E322AF1E18729400B15C58 /* MiniSafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniSafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45E322B31E18729400B15C58 /* MiniSafeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniSafeUITests.m; sourceTree = "<group>"; };
+		45E322B51E18729400B15C58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E322C71E1AEA9900B15C58 /* SelectItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectItemViewController.h; sourceTree = "<group>"; };
+		45E322C81E1AEA9900B15C58 /* SelectItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectItemViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45E322881E18729400B15C58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				457F15ED1E33E96E006F963D /* Security.framework in Frameworks */,
+				457F15EA1E33E959006F963D /* libsqlcipher.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E322A11E18729400B15C58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E322AC1E18729400B15C58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		457F15D61E33E54F006F963D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				457F15DF1E33E54F006F963D /* SQLCipher.framework */,
+				457F15E11E33E54F006F963D /* SQLCipher.framework */,
+				457F15E31E33E54F006F963D /* SQLCipher.framework */,
+				457F15E51E33E54F006F963D /* SQLCipher.framework */,
+				457F15E71E33E54F006F963D /* libsqlcipher.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		457F15EB1E33E96E006F963D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				457F15EC1E33E96E006F963D /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45E322821E18729400B15C58 = {
+			isa = PBXGroup;
+			children = (
+				457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */,
+				45E3228D1E18729400B15C58 /* MiniSafe */,
+				45E322A71E18729400B15C58 /* MiniSafeTests */,
+				45E322B21E18729400B15C58 /* MiniSafeUITests */,
+				45E3228C1E18729400B15C58 /* Products */,
+				457F15EB1E33E96E006F963D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		45E3228C1E18729400B15C58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45E3228B1E18729400B15C58 /* MiniSafe.app */,
+				45E322A41E18729400B15C58 /* MiniSafeTests.xctest */,
+				45E322AF1E18729400B15C58 /* MiniSafeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45E3228D1E18729400B15C58 /* MiniSafe */ = {
+			isa = PBXGroup;
+			children = (
+				45E322911E18729400B15C58 /* AppDelegate.h */,
+				45E322921E18729400B15C58 /* AppDelegate.m */,
+				45DCA6D01EB6A1740041D33B /* ItemViewController.h */,
+				45DCA6D11EB6A1740041D33B /* ItemViewController.m */,
+				45E322C71E1AEA9900B15C58 /* SelectItemViewController.h */,
+				45E322C81E1AEA9900B15C58 /* SelectItemViewController.m */,
+				45E322971E18729400B15C58 /* Main.storyboard */,
+				45E3229A1E18729400B15C58 /* Assets.xcassets */,
+				45E3229C1E18729400B15C58 /* LaunchScreen.storyboard */,
+				45E3229F1E18729400B15C58 /* Info.plist */,
+				45E3228E1E18729400B15C58 /* Supporting Files */,
+				457F15F01E356C1C006F963D /* DataManager.h */,
+				457F15F11E356C1C006F963D /* DataManager.m */,
+			);
+			path = MiniSafe;
+			sourceTree = "<group>";
+		};
+		45E3228E1E18729400B15C58 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45E3228F1E18729400B15C58 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45E322A71E18729400B15C58 /* MiniSafeTests */ = {
+			isa = PBXGroup;
+			children = (
+				45E322A81E18729400B15C58 /* MiniSafeTests.m */,
+				45E322AA1E18729400B15C58 /* Info.plist */,
+			);
+			path = MiniSafeTests;
+			sourceTree = "<group>";
+		};
+		45E322B21E18729400B15C58 /* MiniSafeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				45E322B31E18729400B15C58 /* MiniSafeUITests.m */,
+				45E322B51E18729400B15C58 /* Info.plist */,
+			);
+			path = MiniSafeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45E3228A1E18729400B15C58 /* MiniSafe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45E322B81E18729400B15C58 /* Build configuration list for PBXNativeTarget "MiniSafe" */;
+			buildPhases = (
+				45E322871E18729400B15C58 /* Sources */,
+				45E322881E18729400B15C58 /* Frameworks */,
+				45E322891E18729400B15C58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				457F15E91E33E947006F963D /* PBXTargetDependency */,
+			);
+			name = MiniSafe;
+			productName = MiniSafe;
+			productReference = 45E3228B1E18729400B15C58 /* MiniSafe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		45E322A31E18729400B15C58 /* MiniSafeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45E322BB1E18729400B15C58 /* Build configuration list for PBXNativeTarget "MiniSafeTests" */;
+			buildPhases = (
+				45E322A01E18729400B15C58 /* Sources */,
+				45E322A11E18729400B15C58 /* Frameworks */,
+				45E322A21E18729400B15C58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45E322A61E18729400B15C58 /* PBXTargetDependency */,
+			);
+			name = MiniSafeTests;
+			productName = MiniSafeTests;
+			productReference = 45E322A41E18729400B15C58 /* MiniSafeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		45E322AE1E18729400B15C58 /* MiniSafeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45E322BE1E18729400B15C58 /* Build configuration list for PBXNativeTarget "MiniSafeUITests" */;
+			buildPhases = (
+				45E322AB1E18729400B15C58 /* Sources */,
+				45E322AC1E18729400B15C58 /* Frameworks */,
+				45E322AD1E18729400B15C58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45E322B11E18729400B15C58 /* PBXTargetDependency */,
+			);
+			name = MiniSafeUITests;
+			productName = MiniSafeUITests;
+			productReference = 45E322AF1E18729400B15C58 /* MiniSafeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45E322831E18729400B15C58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Jameson Weng";
+				TargetAttributes = {
+					45E3228A1E18729400B15C58 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					45E322A31E18729400B15C58 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 45E3228A1E18729400B15C58;
+					};
+					45E322AE1E18729400B15C58 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 45E3228A1E18729400B15C58;
+					};
+				};
+			};
+			buildConfigurationList = 45E322861E18729400B15C58 /* Build configuration list for PBXProject "MiniSafe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 45E322821E18729400B15C58;
+			productRefGroup = 45E3228C1E18729400B15C58 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 457F15D61E33E54F006F963D /* Products */;
+					ProjectRef = 457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				45E3228A1E18729400B15C58 /* MiniSafe */,
+				45E322A31E18729400B15C58 /* MiniSafeTests */,
+				45E322AE1E18729400B15C58 /* MiniSafeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		457F15DF1E33E54F006F963D /* SQLCipher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLCipher.framework;
+			remoteRef = 457F15DE1E33E54F006F963D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		457F15E11E33E54F006F963D /* SQLCipher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLCipher.framework;
+			remoteRef = 457F15E01E33E54F006F963D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		457F15E31E33E54F006F963D /* SQLCipher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLCipher.framework;
+			remoteRef = 457F15E21E33E54F006F963D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		457F15E51E33E54F006F963D /* SQLCipher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLCipher.framework;
+			remoteRef = 457F15E41E33E54F006F963D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		457F15E71E33E54F006F963D /* libsqlcipher.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsqlcipher.a;
+			remoteRef = 457F15E61E33E54F006F963D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45E322891E18729400B15C58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45E3229E1E18729400B15C58 /* LaunchScreen.storyboard in Resources */,
+				45E3229B1E18729400B15C58 /* Assets.xcassets in Resources */,
+				45E322991E18729400B15C58 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E322A21E18729400B15C58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E322AD1E18729400B15C58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45E322871E18729400B15C58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45E322C91E1AEA9900B15C58 /* SelectItemViewController.m in Sources */,
+				45E322931E18729400B15C58 /* AppDelegate.m in Sources */,
+				45DCA6D21EB6A1740041D33B /* ItemViewController.m in Sources */,
+				457F15F21E356C1C006F963D /* DataManager.m in Sources */,
+				45E322901E18729400B15C58 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E322A01E18729400B15C58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45E322A91E18729400B15C58 /* MiniSafeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E322AB1E18729400B15C58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45E322B41E18729400B15C58 /* MiniSafeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		457F15E91E33E947006F963D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = sqlcipher;
+			targetProxy = 457F15E81E33E947006F963D /* PBXContainerItemProxy */;
+		};
+		45E322A61E18729400B15C58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45E3228A1E18729400B15C58 /* MiniSafe */;
+			targetProxy = 45E322A51E18729400B15C58 /* PBXContainerItemProxy */;
+		};
+		45E322B11E18729400B15C58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45E3228A1E18729400B15C58 /* MiniSafe */;
+			targetProxy = 45E322B01E18729400B15C58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45E322971E18729400B15C58 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45E322981E18729400B15C58 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		45E3229C1E18729400B15C58 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45E3229D1E18729400B15C58 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45E322B61E18729400B15C58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/sqlcipher/src";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
+				OTHER_LDFLAGS = "$(BUILT_PRODUCTS_DIR)/libsqlcipher.a";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45E322B71E18729400B15C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/sqlcipher/src";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
+				OTHER_LDFLAGS = "$(BUILT_PRODUCTS_DIR)/libsqlcipher.a";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45E322B91E18729400B15C58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = MiniSafe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = jweng.MiniSafe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		45E322BA1E18729400B15C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = MiniSafe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = jweng.MiniSafe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		45E322BC1E18729400B15C58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MiniSafeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jweng.MiniSafeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniSafe.app/MiniSafe";
+			};
+			name = Debug;
+		};
+		45E322BD1E18729400B15C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MiniSafeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jweng.MiniSafeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniSafe.app/MiniSafe";
+			};
+			name = Release;
+		};
+		45E322BF1E18729400B15C58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MiniSafeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jweng.MiniSafeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MiniSafe;
+			};
+			name = Debug;
+		};
+		45E322C01E18729400B15C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MiniSafeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jweng.MiniSafeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MiniSafe;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45E322861E18729400B15C58 /* Build configuration list for PBXProject "MiniSafe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45E322B61E18729400B15C58 /* Debug */,
+				45E322B71E18729400B15C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45E322B81E18729400B15C58 /* Build configuration list for PBXNativeTarget "MiniSafe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45E322B91E18729400B15C58 /* Debug */,
+				45E322BA1E18729400B15C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45E322BB1E18729400B15C58 /* Build configuration list for PBXNativeTarget "MiniSafeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45E322BC1E18729400B15C58 /* Debug */,
+				45E322BD1E18729400B15C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45E322BE1E18729400B15C58 /* Build configuration list for PBXNativeTarget "MiniSafeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45E322BF1E18729400B15C58 /* Debug */,
+				45E322C01E18729400B15C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45E322831E18729400B15C58 /* Project object */;
+}
