@@ -5,6 +5,8 @@
 
 #import "ItemViewController.h"
 
+#import "DataManager.h"
+
 @interface ItemViewController ()
 
 @end
@@ -14,11 +16,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.textView.text = [[DataManager sharedInstance] getContentsForTitle:itemTitle];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showContentsForTitle:(NSString *)title {
+    itemTitle = title;
 }
 
 /*

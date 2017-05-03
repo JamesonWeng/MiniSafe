@@ -22,12 +22,6 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    contentList = [[NSMutableArray alloc] init];
-    for(int i = 0; i < 5; i++) {
-        [contentList addObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"Content #%d\n", i], @"ContentName", nil]];
-    }
-    
-    
     // test database
     DataManager *manager = [DataManager sharedInstance];
     [manager openDatabase:@"no password"];
@@ -40,6 +34,8 @@
         [manager setContents:contents forTitle:title];
     }
     
+    titleList = [manager getTitles];
+
     [manager cleanup];
 }
 
@@ -49,19 +45,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return contentList.count;
+    return titleList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSString *identifier = @"ContentCell";
+    static NSString *identifier = @"TitleCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
-    if(cell == nil) {
+    if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
-    cell.textLabel.text = [[contentList objectAtIndex:indexPath.row] objectForKey:@"ContentName"];
+    cell.textLabel.text = titleList[indexPath.row];
     
     return cell;
 }
@@ -71,6 +66,8 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ItemViewController *itemController = [mainStoryboard instantiateViewControllerWithIdentifier:@"ItemViewController"];
+    
+    [itemController showContentsForTitle:titleList[indexPath.row]];
     
     [self.navigationController pushViewController:itemController animated:YES];
 }

@@ -7,7 +7,7 @@
 
 @interface SelectItemViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
     
-    NSMutableArray *contentList;
+    NSMutableArray *titleList;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

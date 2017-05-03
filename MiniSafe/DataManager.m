@@ -96,16 +96,16 @@ cleanupDatabase:
     
     while (true) {
         int step_rv = sqlite3_step(preparedStmt);
-        if (step_rv != SQLITE_OK && step_rv != SQLITE_DONE) {
+        
+        if (step_rv == SQLITE_DONE) {
+            break;
+        }
+        else if (step_rv != SQLITE_ROW) {
             NSLog(@"failed to execute query statement");
             goto cleanupStmt;
         }
         
         [titles addObject:[NSString stringWithUTF8String:(const char*)sqlite3_column_text(preparedStmt, 0)]];
-        
-        if (step_rv == SQLITE_DONE) {
-            break;
-        }
     }
 
     return titles;
@@ -147,7 +147,7 @@ cleanupStmt:
 }
 
 - (NSString *)getContentsForTitle:(NSString *)title {
-    static NSString *query = @"SELECT contents FROM data_table WHERE title = ?1";
+    static NSString *query = @"SELECT contents FROM data_table WHERE title = ?1;";
     
     sqlite3_stmt *preparedStmt;
     NSString *contents;
