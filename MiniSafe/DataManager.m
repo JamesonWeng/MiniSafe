@@ -10,33 +10,52 @@
 
 @implementation DataManager
 
++ (id)sharedInstance {
+    static DataManager *sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        sharedInstance = [[DataManager alloc] init];
+    });
+    return sharedInstance;
+}
+
 - (id)init {
     if (!(self = [super init])) {
-        NSLog(@"Failed to initalize superclass object");
-        return self;
+        NSLog(@"Failed to initalize object");
+        return nil;
     }
     
+    return self;
+}
+
+- (BOOL)openDatabase:(NSString *)password {
     NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     NSString *databasePath = [documentsDir stringByAppendingPathComponent:@"test.db"];
     
+    sqlite3_stmt *preparedStmt;
+    NSString *createTableCmd = @"CREATE TABLE IF NOT EXISTS data_table (title text PRIMARY_KEY, contents text);";
+    
     // open a connection to the database
     if (sqlite3_open([databasePath UTF8String], &database) != SQLITE_OK) {
         NSLog(@"Failed to open database at %@", databasePath);
-        return nil;
+        return NO;
     }
     
     /*
     // register the key for encrypting/decrypting the database
-    NSString *database_key = @"My secret key";
-    if (sqlite3_key(database, [database_key UTF8String], [database_key length]) != SQLITE_OK) {
+    NSString *databaseKey = @"My secret key";
+    if (sqlite3_key(database, [databaseKey UTF8String], [databaseKey length]) != SQLITE_OK) {
         NSLog(@"Failed to key the database");
-        goto cleanup_database;
+        goto cleanupDatabase;
     }
     */
     
-    sqlite3_stmt *preparedStmt;
-    NSString *createTableCmd = @"CREATE TABLE IF NOT EXISTS data_table ( title text PRIMARY_KEY, contents text );";
+    // check if key was correct
+    if (sqlite3_exec(database, "SELECT count (*) FROM sqlite_master;", NULL, NULL, NULL) != SQLITE_OK) {
+        NSLog(@"sqlite3_exec failed - password was incorrect");
+        goto cleanupDatabase;
+    }
     
     // prepare the statement
     if (sqlite3_prepare_v2(database, [createTableCmd UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
@@ -53,7 +72,7 @@
     sqlite3_finalize(preparedStmt); // free the prepared statement
     NSLog(@"Created table");
     
-    return self;
+    return YES;
 
 cleanupStmt:
     sqlite3_finalize(preparedStmt);
@@ -61,12 +80,39 @@ cleanupStmt:
 cleanupDatabase:
     sqlite3_close(database);
     
-    return nil;
+    return NO;
 }
 
-- (NSArray *)getItemTitles {
-    NSArray *titles = [[NSArray alloc] init];
+- (NSMutableArray *)getTitles {
+    static NSString *getCmd = @"SELECT title FROM data_table;";
+    
+    NSMutableArray *titles = [[NSMutableArray alloc] init];
+    sqlite3_stmt *preparedStmt;
+    
+    if (sqlite3_prepare_v2(database, [getCmd UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
+        NSLog(@"Failed to prepare statement");
+        return nil;
+    }
+    
+    while (true) {
+        int step_rv = sqlite3_step(preparedStmt);
+        if (step_rv != SQLITE_OK && step_rv != SQLITE_DONE) {
+            NSLog(@"failed to execute query statement");
+            goto cleanupStmt;
+        }
+        
+        [titles addObject:[NSString stringWithUTF8String:(const char*)sqlite3_column_text(preparedStmt, 0)]];
+        
+        if (step_rv == SQLITE_DONE) {
+            break;
+        }
+    }
+
     return titles;
+    
+cleanupStmt:
+    sqlite3_finalize(preparedStmt);
+    return nil;
 }
 
 - (void)addTitle:(NSString *)title {
@@ -96,11 +142,14 @@ cleanupStmt:
     sqlite3_finalize(preparedStmt);
 }
 
+- (void)removeTitle:(NSString *)title {
+    
+}
+
 - (NSString *)getContentsForTitle:(NSString *)title {
     static NSString *query = @"SELECT contents FROM data_table WHERE title = ?1";
     
     sqlite3_stmt *preparedStmt;
-    
     NSString *contents;
     
     // prepare the statement
@@ -127,13 +176,12 @@ cleanupStmt:
     
     return contents;
     
-    
 cleanupStmt:
     sqlite3_finalize(preparedStmt);
     return nil;
 }
 
-- (void)updateContents:(NSString *)contents forTitle:(NSString *)title {
+- (void)setContents:(NSString *)contents forTitle:(NSString *)title {
     static NSString *insertCmd = @"UPDATE data_table SET contents = ?1 WHERE title = ?2;";
     
     sqlite3_stmt *preparedStmt;

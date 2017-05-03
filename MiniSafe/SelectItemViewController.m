@@ -29,11 +29,17 @@
     
     
     // test database
-    DataManager *manager = [[DataManager alloc] init];
-    [manager addTitle:@"sample title"];
-    NSLog(@"contents are:%@", [manager getContentsForTitle:@"sample title"]);
-    [manager updateContents:@"sample contents" forTitle:@"sample title"];
-    NSLog(@"contents are:%@", [manager getContentsForTitle:@"sample title"]);
+    DataManager *manager = [DataManager sharedInstance];
+    [manager openDatabase:@"no password"];
+    
+    for (int i = 0; i < 5; i++) {
+        NSString *title = [NSString stringWithFormat:@"sample title %d", i];
+        NSString *contents = [NSString stringWithFormat:@"sample contents %d", i];
+        
+        [manager addTitle:title];
+        [manager setContents:contents forTitle:title];
+    }
+    
     [manager cleanup];
 }
 

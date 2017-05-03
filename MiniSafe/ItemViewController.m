@@ -2,9 +2,6 @@
 //  ItemViewController.m
 //  MiniSafe
 //
-//  Created by Jameson Weng on 2017-04-30.
-//  Copyright © 2017 Jameson Weng. All rights reserved.
-//
 
 #import "ItemViewController.h"
 
@@ -34,4 +31,7 @@
 }
 */
 
+- (IBAction)saveContents:(id)sender {
+    NSLog(@"Preparing to save contents...");
+}
 @end

@@ -84,7 +84,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Item" id="wrf-yO-2iR">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="nvO-4M-swE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="nvO-4M-swE">
+                            <connections>
+                                <action selector="saveContents:" destination="Z67-SX-rPy" id="kyb-Fd-qvj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
