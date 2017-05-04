@@ -21,7 +21,7 @@
 
 - (id)init {
     if (!(self = [super init])) {
-        NSLog(@"Failed to initalize object");
+        NSLog(@"failed to initalize object");
         return nil;
     }
     
@@ -38,7 +38,7 @@
     
     // open a connection to the database
     if (sqlite3_open([databasePath UTF8String], &database) != SQLITE_OK) {
-        NSLog(@"Failed to open database at %@", databasePath);
+        NSLog(@"failed to open database at %@", databasePath);
         return NO;
     }
     
@@ -46,7 +46,7 @@
     // register the key for encrypting/decrypting the database
     NSString *databaseKey = @"My secret key";
     if (sqlite3_key(database, [databaseKey UTF8String], [databaseKey length]) != SQLITE_OK) {
-        NSLog(@"Failed to key the database");
+        NSLog(@"failed to key the database");
         goto cleanupDatabase;
     }
     */
@@ -59,19 +59,17 @@
     
     // prepare the statement
     if (sqlite3_prepare_v2(database, [createTableCmd UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
-        NSLog(@"Failed to prepare statement");
+        NSLog(@"failed to prepare statement");
         goto cleanupDatabase;
     }
     
     // execute the statement
     if (sqlite3_step(preparedStmt) != SQLITE_DONE) {
-        NSLog(@"Failed to create table to store user data");
+        NSLog(@"failed to create table to store user data");
         goto cleanupStmt;
     }
     
     sqlite3_finalize(preparedStmt); // free the prepared statement
-    NSLog(@"Created table");
-    
     return YES;
 
 cleanupStmt:
@@ -79,7 +77,6 @@ cleanupStmt:
     
 cleanupDatabase:
     sqlite3_close(database);
-    
     return NO;
 }
 
@@ -90,7 +87,7 @@ cleanupDatabase:
     sqlite3_stmt *preparedStmt;
     
     if (sqlite3_prepare_v2(database, [getCmd UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
-        NSLog(@"Failed to prepare statement");
+        NSLog(@"failed to prepare statement");
         return nil;
     }
     
@@ -122,19 +119,19 @@ cleanupStmt:
     
     // prepare the statement
     if (sqlite3_prepare_v2(database, [addCmd UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
-        NSLog(@"Failed to prepare statement");
+        NSLog(@"failed to prepare statement");
         return;
     }
     
     // bind the title to ?1
     if (sqlite3_bind_text(preparedStmt, 1, [title UTF8String], [title length], SQLITE_STATIC) != SQLITE_OK) {
-        NSLog(@"Failed to bind title to sqlite statement");
+        NSLog(@"failed to bind title to sqlite statement");
         goto cleanupStmt;
     }
     
     // execute the statement
     if (sqlite3_step(preparedStmt) != SQLITE_DONE) {
-        NSLog(@"Did not successfully add row to data table");
+        NSLog(@"did not successfully add row to data table");
         goto cleanupStmt;
     }
     
@@ -143,7 +140,30 @@ cleanupStmt:
 }
 
 - (void)removeTitle:(NSString *)title {
+    static NSString *deleteCmd = @"DELETE FROM data_table WHERE title = ?1;";
     
+    sqlite3_stmt *preparedStmt;
+    
+    // prepare the statement
+    if (sqlite3_prepare_v2(database, [deleteCmd UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
+        NSLog(@"failed to prepare statement");
+        goto cleanupStmt;
+    }
+    
+    // bind title to ?1
+    if (sqlite3_bind_text(preparedStmt, 1, [title UTF8String], [title length], SQLITE_STATIC) != SQLITE_OK) {
+        NSLog(@"failed to bind title to sqlite statement");
+        goto cleanupStmt;
+    }
+    
+    // execute the statement
+    if (sqlite3_step(preparedStmt) != SQLITE_DONE) {
+        NSLog(@"delete statement didn't execute successfully");
+        goto cleanupStmt;
+    }
+    
+cleanupStmt:
+    sqlite3_finalize(preparedStmt);
 }
 
 - (NSString *)getContentsForTitle:(NSString *)title {
@@ -154,19 +174,19 @@ cleanupStmt:
     
     // prepare the statement
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
-        NSLog(@"Failed to prepare statement");
+        NSLog(@"failed to prepare statement");
         return nil;
     }
     
     // bind the title to ?1
     if (sqlite3_bind_text(preparedStmt, 1, [title UTF8String], [title length], SQLITE_STATIC) != SQLITE_OK) {
-        NSLog(@"Failed to bind title to sqlite statement");
+        NSLog(@"failed to bind title to sqlite statement");
         goto cleanupStmt;
     }
     
     // execute the statement
     if (sqlite3_step(preparedStmt) != SQLITE_ROW) {
-        NSLog(@"Did not find any rows matching title");
+        NSLog(@"did not find any rows matching title");
         goto cleanupStmt;
     }
     
@@ -188,25 +208,25 @@ cleanupStmt:
     
     // prepare the statement
     if (sqlite3_prepare_v2(database, [insertCmd UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
-        NSLog(@"Failed to prepare statement");
+        NSLog(@"failed to prepare statement");
         return;
     }
     
     // bind contents to ?1
     if (sqlite3_bind_text(preparedStmt, 1, [contents UTF8String], [contents length], SQLITE_STATIC) != SQLITE_OK) {
-        NSLog(@"Failed to bind contents to sqlite statement");
+        NSLog(@"failed to bind contents to sqlite statement");
         goto cleanupStmt;
     }
     
     // bind title to ?2
     if (sqlite3_bind_text(preparedStmt, 2, [title UTF8String], [title length], SQLITE_STATIC) != SQLITE_OK) {
-        NSLog(@"Failed to bind title to sqlite statement");
+        NSLog(@"failed to bind title to sqlite statement");
         goto cleanupStmt;
     }
   
     // execute statement
     if (sqlite3_step(preparedStmt) != SQLITE_DONE) {
-        NSLog(@"Did not successfully insert into the table");
+        NSLog(@"did not successfully insert into the table");
         goto cleanupStmt;
     }
     

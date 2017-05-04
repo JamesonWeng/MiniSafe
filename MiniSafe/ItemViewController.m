@@ -40,6 +40,6 @@
 */
 
 - (IBAction)saveContents:(id)sender {
-    NSLog(@"Preparing to save contents...");
+    [[DataManager sharedInstance] setContents:self.textView.text forTitle:itemTitle];
 }
 @end

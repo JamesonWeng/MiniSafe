@@ -26,17 +26,7 @@
     DataManager *manager = [DataManager sharedInstance];
     [manager openDatabase:@"no password"];
     
-    for (int i = 0; i < 5; i++) {
-        NSString *title = [NSString stringWithFormat:@"sample title %d", i];
-        NSString *contents = [NSString stringWithFormat:@"sample contents %d", i];
-        
-        [manager addTitle:title];
-        [manager setContents:contents forTitle:title];
-    }
-    
     titleList = [manager getTitles];
-
-    [manager cleanup];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +73,36 @@
 */
 
 - (IBAction)addItem:(id)sender {
-    NSLog(@"preparing to add item...");
+    UIAlertController *titleAlert = [UIAlertController alertControllerWithTitle:@"Set Title" message:@"Choose a title for the new item" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [titleAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"title";
+    }];
+    
+    [titleAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString *title = titleAlert.textFields[0].text;
+        
+        // check uniqueness
+        if ([titleList containsObject:title]) {
+            NSLog(@"duplicate title");
+            
+            UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"This title already exists" preferredStyle:UIAlertControllerStyleAlert];
+            
+            [errorAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            
+            [self presentViewController:errorAlert animated:YES completion:nil];
+        }
+        
+        // update data & reload table
+        DataManager *manager = [DataManager sharedInstance];
+        [manager addTitle:title];
+        titleList = [manager getTitles];
+        [self.tableView reloadData];
+    }]];
+
+    [titleAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:titleAlert animated:YES completion:nil];
 }
 
 @end
