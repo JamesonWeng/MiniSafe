@@ -83,14 +83,15 @@
         NSString *title = titleAlert.textFields[0].text;
         
         // check uniqueness
-        if ([titleList containsObject:title]) {
-            NSLog(@"duplicate title");
+        if ([titleList containsObject:title] == YES) {
             
             UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"This title already exists" preferredStyle:UIAlertControllerStyleAlert];
             
             [errorAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
             
             [self presentViewController:errorAlert animated:YES completion:nil];
+            
+            return;
         }
         
         // update data & reload table
