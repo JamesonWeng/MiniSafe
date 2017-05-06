@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453FA3AD1EBD7B57004CDF2C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 453FA3AC1EBD7B57004CDF2C /* LoginViewController.m */; };
 		457F15EA1E33E959006F963D /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 457F15E71E33E54F006F963D /* libsqlcipher.a */; };
 		457F15ED1E33E96E006F963D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457F15EC1E33E96E006F963D /* Security.framework */; };
 		457F15F21E356C1C006F963D /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 457F15F11E356C1C006F963D /* DataManager.m */; };
@@ -81,6 +82,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		453FA3AB1EBD7B57004CDF2C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		453FA3AC1EBD7B57004CDF2C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		457F15D51E33E54F006F963D /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
 		457F15EC1E33E96E006F963D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		457F15F01E356C1C006F963D /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 			children = (
 				45E322911E18729400B15C58 /* AppDelegate.h */,
 				45E322921E18729400B15C58 /* AppDelegate.m */,
+				453FA3AB1EBD7B57004CDF2C /* LoginViewController.h */,
+				453FA3AC1EBD7B57004CDF2C /* LoginViewController.m */,
 				45DCA6D01EB6A1740041D33B /* ItemViewController.h */,
 				45DCA6D11EB6A1740041D33B /* ItemViewController.m */,
 				45E322C71E1AEA9900B15C58 /* SelectItemViewController.h */,
@@ -400,6 +405,7 @@
 			files = (
 				45E322C91E1AEA9900B15C58 /* SelectItemViewController.m in Sources */,
 				45E322931E18729400B15C58 /* AppDelegate.m in Sources */,
+				453FA3AD1EBD7B57004CDF2C /* LoginViewController.m in Sources */,
 				45DCA6D21EB6A1740041D33B /* ItemViewController.m in Sources */,
 				457F15F21E356C1C006F963D /* DataManager.m in Sources */,
 				45E322901E18729400B15C58 /* main.m in Sources */,

@@ -18,6 +18,7 @@
 
 + (id)sharedInstance;
 
+- (BOOL)databaseExists;
 // open & decrypt the database - this function must be called before title/content manipulation
 // if database didn't exist before, this creates one keyed to the given password
 - (BOOL)openDatabase:(NSString *)password;

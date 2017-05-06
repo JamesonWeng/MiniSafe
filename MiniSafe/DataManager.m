@@ -10,15 +10,6 @@
 
 @implementation DataManager
 
-+ (id)sharedInstance {
-    static DataManager *sharedInstance = nil;
-    static dispatch_once_t oncePredicate;
-    dispatch_once(&oncePredicate, ^{
-        sharedInstance = [[DataManager alloc] init];
-    });
-    return sharedInstance;
-}
-
 - (id)init {
     if (!(self = [super init])) {
         NSLog(@"failed to initalize object");
@@ -28,10 +19,28 @@
     return self;
 }
 
-- (BOOL)openDatabase:(NSString *)password {
++ (id)sharedInstance {
+    static DataManager *sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        sharedInstance = [[DataManager alloc] init];
+    });
+    return sharedInstance;
+}
+
+- (NSString *)databasePath {
     NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSString *databasePath = [documentsDir stringByAppendingPathComponent:@"test.db"];
+    return [documentsDir stringByAppendingPathComponent:@"test.db"];
+}
+
+- (BOOL)databaseExists {
+    return [[NSFileManager defaultManager] fileExistsAtPath:[self databasePath]];
+}
+
+- (BOOL)openDatabase:(NSString *)password {
+    
+    NSString *databasePath = [self databasePath];
     
     sqlite3_stmt *preparedStmt;
     NSString *createTableCmd = @"CREATE TABLE IF NOT EXISTS data_table (title text PRIMARY_KEY, contents text);";

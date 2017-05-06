@@ -52,7 +52,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ItemViewController *itemController = [mainStoryboard instantiateViewControllerWithIdentifier:@"ItemViewController"];
