@@ -46,10 +46,11 @@
 
 
 - (IBAction)submitPassword:(UIButton *)sender {
-    NSLog(@"Entered password");
+    NSString *password = self.passwordField.text;
+    self.passwordField.text = @"";
     
     // try to create/decrypt database
-    if ([[DataManager sharedInstance] openDatabase:self.passwordField.text] == NO) {
+    if ([[DataManager sharedInstance] openDatabase:password] == NO) {
         UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please try again" preferredStyle:UIAlertControllerStyleAlert];
         
         [errorAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];

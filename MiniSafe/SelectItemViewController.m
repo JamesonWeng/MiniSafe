@@ -22,11 +22,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    // test database
-    DataManager *manager = [DataManager sharedInstance];
-    [manager openDatabase:@"no password"];
-    
-    titleList = [manager getTitles];
+    titleList = [[DataManager sharedInstance] getTitles];
 }
 
 - (void)didReceiveMemoryWarning {

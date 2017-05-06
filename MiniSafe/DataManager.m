@@ -51,14 +51,11 @@
         return NO;
     }
     
-    /*
-    // register the key for encrypting/decrypting the database
-    NSString *databaseKey = @"My secret key";
-    if (sqlite3_key(database, [databaseKey UTF8String], [databaseKey length]) != SQLITE_OK) {
+    // decrypt the database
+    if (sqlite3_key(database, [password UTF8String], [password length]) != SQLITE_OK) {
         NSLog(@"failed to key the database");
         goto cleanupDatabase;
     }
-    */
     
     // check if key was correct
     if (sqlite3_exec(database, "SELECT count (*) FROM sqlite_master;", NULL, NULL, NULL) != SQLITE_OK) {
@@ -66,7 +63,7 @@
         goto cleanupDatabase;
     }
     
-    // prepare the statement
+    // create the data table if it didn't exist previously
     if (sqlite3_prepare_v2(database, [createTableCmd UTF8String], -1, &preparedStmt, NULL) != SQLITE_OK) {
         NSLog(@"failed to prepare statement");
         goto cleanupDatabase;
