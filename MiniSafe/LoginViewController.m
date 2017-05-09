@@ -23,7 +23,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnToLoginViewController) name:@"returnToLogin" object:nil];
     
-    if ([[DataManager sharedInstance] databaseExists] == NO) {
+    if ([[DataManager sharedInstance] databaseExists] == YES) {
         self.messageLabel.text = @"Please enter your password";
     }
     else {
