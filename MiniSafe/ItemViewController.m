@@ -41,5 +41,6 @@
 
 - (IBAction)saveContents:(id)sender {
     [[DataManager sharedInstance] setContents:self.textView.text forTitle:itemTitle];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end
