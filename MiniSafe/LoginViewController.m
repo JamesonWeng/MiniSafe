@@ -21,12 +21,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnToLoginViewController) name:@"returnToLogin" object:nil];
+    
     if ([[DataManager sharedInstance] databaseExists] == NO) {
         self.messageLabel.text = @"Please enter your password";
     }
     else {
         self.messageLabel.text = @"Please choose a password";
     }
+}
+
+- (void)returnToLoginViewController {
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
