@@ -101,4 +101,34 @@
     [self presentViewController:titleAlert animated:YES completion:nil];
 }
 
+- (IBAction)handleLongPress:(UILongPressGestureRecognizer *)sender {
+    if (sender.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
+    
+    CGPoint point = [sender locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    
+    UIAlertController *deleteAlert = [UIAlertController alertControllerWithTitle:@"Actions" message:@"Choose what you would like to do" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // open the item - i.e. transition to next view controller
+    [deleteAlert addAction:[UIAlertAction actionWithTitle:@"Open" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    }]];
+    
+    // delete the item
+    [deleteAlert addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        DataManager *manager = [DataManager sharedInstance];
+        [manager removeTitle:titleList[indexPath.row]];
+        titleList = [manager getTitles];
+        [self.tableView reloadData];
+    }]];
+    
+    // cancel
+    [deleteAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:deleteAlert animated:YES completion:nil];
+}
+
 @end

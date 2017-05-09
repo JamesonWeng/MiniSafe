@@ -14,4 +14,6 @@
 
 - (IBAction)addItem:(id)sender;
 
+- (IBAction)handleLongPress:(UILongPressGestureRecognizer *)sender;
+
 @end
