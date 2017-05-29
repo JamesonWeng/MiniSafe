@@ -32,6 +32,6 @@
 - (NSString *)getContentsForTitle:(NSString *)title;
 - (void)setContents:(NSString *)contents forTitle:(NSString *)title;
 
-- (void)cleanup;
+- (void)closeDatabase;
 
 @end

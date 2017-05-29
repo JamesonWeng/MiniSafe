@@ -16,6 +16,7 @@
         return nil;
     }
     
+    database = nil;
     return self;
 }
 
@@ -240,8 +241,11 @@ cleanupStmt:
     sqlite3_finalize(preparedStmt);
 }
 
-- (void)cleanup {
+- (void)closeDatabase {
+    NSLog(@"Called to close database");
+    
     sqlite3_close(database);
+    database = nil;
 }
 
 @end
