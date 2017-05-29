@@ -22,6 +22,8 @@
     // Do any additional setup after loading the view.
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnToLoginViewController) name:@"returnToLogin" object:nil];
+    
+    self.passwordField.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -56,6 +58,10 @@
 }
 */
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (IBAction)submitPassword:(UIButton *)sender {
     NSString *password = self.passwordField.text;
