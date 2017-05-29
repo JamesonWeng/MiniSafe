@@ -31,10 +31,13 @@
     else {
         self.messageLabel.text = @"Please choose a password";
     }
+    
+    // close the database if it was open before
+    // otherwise, this is a no-op
+    [[DataManager sharedInstance] closeDatabase];
 }
 
 - (void)returnToLoginViewController {
-    [[DataManager sharedInstance] closeDatabase];
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
